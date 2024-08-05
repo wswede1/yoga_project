@@ -4,6 +4,8 @@ from model.enums import SequenceType
 
 
 class PoseSequence:
+    """Class representing a sequence of yoga poses."""
+
     def __init__(self, name: str, poses: List[YogaPose], sequence_type: SequenceType):
         self.name = name
         self.poses = poses

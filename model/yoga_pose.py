@@ -3,6 +3,7 @@ from model.enums import BodyPart, PoseCategory, YogaStyle, PoseBenefit
 
 
 class YogaPose:
+    """CLass representing a yoga pose"""
     def __init__(
             self,
             id: int = None,

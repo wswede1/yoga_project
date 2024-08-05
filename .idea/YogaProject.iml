@@ -6,7 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/yoga_env" />
       <excludeFolder url="file://$MODULE_DIR$/yoga_env/bin" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.12 (YogaProject)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.11 (YogaProject) (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
@@ -15,4 +15,4 @@
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="py.test" />
   </component>
-</module>
+</mod
