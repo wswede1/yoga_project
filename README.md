@@ -6,4 +6,5 @@ stay loose throughout the day. ~~~~Integrate 'Pick Your Pose'n' with a Pomodoro 
 
 ## API Documentation
 
-For detailed information on how to use the Yoga Pose API, including examples and error handling, please refer to the [API Documentation](documents/API_documentation.md).
+For detailed information on how to use the Yoga Pose API, including examples and error handling, please refer to the [documentation](https://github.com/wswede1/yoga_project/blob/main/documents/api_documentation.md).
+~~~~
