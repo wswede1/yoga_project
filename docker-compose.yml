@@ -8,7 +8,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: strongpassword
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./data/init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s

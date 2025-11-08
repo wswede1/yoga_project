@@ -1,0 +1,702 @@
+[
+  {
+    "english_name": "Mountain Pose",
+    "sanskrit_name": "Tadasana",
+    "pose_type": "Standing, Foundation, Balance",
+    "target_body_parts": "Feet, Ankles, Spine",
+    "instructions": "Stand tall with feet hip-width, ground through all four corners, engage thighs, and lengthen the crown of your head toward the sky."
+  },
+  {
+    "english_name": "Standing Forward Fold",
+    "sanskrit_name": "Uttanasana",
+    "pose_type": "Forward Fold, Standing, Flexibility",
+    "target_body_parts": "Hamstrings, Spine, Calves",
+    "instructions": "Fold from the hips, soften the knees as needed, let the crown release toward the floor, and breathe into the back body."
+  },
+  {
+    "english_name": "Halfway Lift",
+    "sanskrit_name": "Ardha Uttanasana",
+    "pose_type": "Forward Fold, Standing, Transition",
+    "target_body_parts": "Hamstrings, Spine",
+    "instructions": "From a forward fold, lengthen the spine forward, press palms into shins, and draw shoulders away from ears."
+  },
+  {
+    "english_name": "Chair Pose",
+    "sanskrit_name": "Utkatasana",
+    "pose_type": "Strength, Standing, Balance",
+    "target_body_parts": "Quads, Glutes, Core",
+    "instructions": "Sit hips back as if into a chair, keep knees over ankles, lift arms alongside ears, and engage the core."
+  },
+  {
+    "english_name": "Warrior I",
+    "sanskrit_name": "Virabhadrasana I",
+    "pose_type": "Standing, Strength, Backbend",
+    "target_body_parts": "Hips, Shoulders, Ankles",
+    "instructions": "Step one foot back, ground through the heel, square hips forward, bend the front knee, and reach arms overhead."
+  },
+  {
+    "english_name": "Warrior II",
+    "sanskrit_name": "Virabhadrasana II",
+    "pose_type": "Standing, Strength, Stability",
+    "target_body_parts": "Hips, Inner Thighs, Shoulders",
+    "instructions": "Open the hips toward the long edge of the mat, stack front knee over ankle, extend arms in opposite directions, and gaze past front fingertips."
+  },
+  {
+    "english_name": "Warrior III",
+    "sanskrit_name": "Virabhadrasana III",
+    "pose_type": "Standing, Balance, Strength",
+    "target_body_parts": "Hamstrings, Core, Glutes",
+    "instructions": "Shift weight onto the front leg, hinge forward, extend the lifted leg back in one line with the torso, and reach arms forward or back."
+  },
+  {
+    "english_name": "Reverse Warrior",
+    "sanskrit_name": "Viparita Virabhadrasana",
+    "pose_type": "Standing, Side Bend",
+    "target_body_parts": "Side Body, Hips",
+    "instructions": "From Warrior II, flip the front palm upward, keep the lunge, and arc the torso back as the back hand glides down the back leg."
+  },
+  {
+    "english_name": "Extended Side Angle",
+    "sanskrit_name": "Utthita Parsvakonasana",
+    "pose_type": "Standing, Strength, Side Bend",
+    "target_body_parts": "Hips, Side Body, Shoulders",
+    "instructions": "Plant front elbow on thigh or hand to floor, extend top arm overhead, and lengthen from heel through fingertips."
+  },
+  {
+    "english_name": "Triangle Pose",
+    "sanskrit_name": "Trikonasana",
+    "pose_type": "Standing, Flexibility, Side Bend",
+    "target_body_parts": "Hamstrings, Hips, Side Body",
+    "instructions": "Straighten the front leg, hinge at the hip, reach forward, and rotate chest open while the bottom hand rests on shin or block."
+  },
+  {
+    "english_name": "Half Moon Pose",
+    "sanskrit_name": "Ardha Chandrasana",
+    "pose_type": "Standing, Balance, Side Body",
+    "target_body_parts": "Hips, Ankles, Core",
+    "instructions": "Balance on the standing leg, open hips to the side, reach the top arm skyward, and keep the lifted leg parallel to the floor."
+  },
+  {
+    "english_name": "Crescent Lunge",
+    "sanskrit_name": "Anjaneyasana",
+    "pose_type": "Standing, Lunge, Backbend",
+    "target_body_parts": "Hip Flexors, Core, Shoulders",
+    "instructions": "Step the back heel high, bend the front knee to 90 degrees, lift the torso, and reach arms overhead while lengthening through the spine."
+  },
+  {
+    "english_name": "Low Lunge",
+    "sanskrit_name": "Ashwa Sanchalanasana",
+    "pose_type": "Lunge, Stretch, Kneeling",
+    "target_body_parts": "Hip Flexors, Quads",
+    "instructions": "Lower the back knee to the mat, sink hips forward, keep the front knee over ankle, and draw the shoulder blades down the back."
+  },
+  {
+    "english_name": "Runner's Lunge",
+    "sanskrit_name": "Ardha Mandalasana",
+    "pose_type": "Lunge, Strength, Stretch",
+    "target_body_parts": "Hamstrings, Hip Flexors",
+    "instructions": "Frame the front foot with both hands, press the back heel long, and extend through the crown of the head while maintaining a strong core."
+  },
+  {
+    "english_name": "Pyramid Pose",
+    "sanskrit_name": "Parsvottanasana",
+    "pose_type": "Standing, Forward Fold",
+    "target_body_parts": "Hamstrings, Calves, Spine",
+    "instructions": "Square hips to the front, hinge over the front leg, keep the spine long, and use blocks under the hands for support."
+  },
+  {
+    "english_name": "Wide-Legged Forward Fold",
+    "sanskrit_name": "Prasarita Padottanasana",
+    "pose_type": "Standing, Forward Fold, Flexibility",
+    "target_body_parts": "Hamstrings, Inner Thighs, Spine",
+    "instructions": "Stand with feet wide, hinge at the hips, fold forward, and let the crown reach toward the floor while keeping weight in the balls of the feet."
+  },
+  {
+    "english_name": "Standing Splits",
+    "sanskrit_name": "Urdhva Prasarita Eka Padasana",
+    "pose_type": "Standing, Balance, Forward Fold",
+    "target_body_parts": "Hamstrings, Glutes, Spine",
+    "instructions": "Fold over the standing leg, lift the opposite leg high behind you, and draw the torso toward the thigh."
+  },
+  {
+    "english_name": "Intense Side Stretch",
+    "sanskrit_name": "Parivritta Parsvottanasana",
+    "pose_type": "Standing, Twist, Forward Fold",
+    "target_body_parts": "Hamstrings, Spine, Shoulders",
+    "instructions": "With hips squared, fold over the front leg and rotate the torso toward it, clasping opposite elbows or reverse prayer behind the back."
+  },
+  {
+    "english_name": "Humble Warrior",
+    "sanskrit_name": "Baddha Virabhadrasana",
+    "pose_type": "Standing, Forward Fold, Strength",
+    "target_body_parts": "Shoulders, Hamstrings, Hips",
+    "instructions": "Clasp hands behind the back, bow inside the front thigh, and allow the arms to stretch overhead while keeping the front knee deeply bent."
+  },
+  {
+    "english_name": "Goddess Pose",
+    "sanskrit_name": "Utkata Konasana",
+    "pose_type": "Standing, Strength",
+    "target_body_parts": "Inner Thighs, Glutes, Pelvic Floor",
+    "instructions": "Turn toes out, bend knees over ankles, sink hips down, and keep the spine tall as arms bend into cactus shape."
+  },
+  {
+    "english_name": "Horse Stance",
+    "sanskrit_name": "Vatayanasana Variation",
+    "pose_type": "Standing, Strength",
+    "target_body_parts": "Glutes, Inner Thighs, Core",
+    "instructions": "Take a wide stance, point toes slightly outward, bend knees deeply, tuck the tailbone slightly, and engage the core while hands rest at heart center."
+  },
+  {
+    "english_name": "Garland Pose",
+    "sanskrit_name": "Malasana",
+    "pose_type": "Squat, Hip Opener",
+    "target_body_parts": "Hips, Ankles, Lower Back",
+    "instructions": "Squat with feet slightly turned out, press elbows into inner knees, lengthen the spine, and broaden the chest."
+  },
+  {
+    "english_name": "Frog Pose",
+    "sanskrit_name": "Mandukasana",
+    "pose_type": "Hip Opener, Stretch",
+    "target_body_parts": "Inner Thighs, Hips, Groin",
+    "instructions": "Come onto forearms and knees wide, open ankles in line with knees, and gently press hips back to deepen the stretch."
+  },
+  {
+    "english_name": "Lizard Pose",
+    "sanskrit_name": "Utthan Pristhasana",
+    "pose_type": "Lunge, Hip Opener",
+    "target_body_parts": "Hip Flexors, Inner Thighs, Hamstrings",
+    "instructions": "From a low lunge, bring both hands inside the front foot, lower forearms to blocks or mat, and breathe into the back hip."
+  },
+  {
+    "english_name": "Half Pigeon Pose",
+    "sanskrit_name": "Ardha Kapotasana",
+    "pose_type": "Hip Opener, Forward Fold",
+    "target_body_parts": "Hips, Glutes, Low Back",
+    "instructions": "Bring the front shin forward, slide the back leg long, square the hips, and fold forward over the front leg while relaxing the shoulders."
+  },
+  {
+    "english_name": "Reclined Figure Four",
+    "sanskrit_name": "Supta Kapotasana",
+    "pose_type": "Supine, Hip Opener",
+    "target_body_parts": "Glutes, Hips, Lower Back",
+    "instructions": "Lie on your back, cross one ankle over the opposite thigh, thread hands behind the lower thigh, and gently draw the legs toward the chest."
+  },
+  {
+    "english_name": "Cow Face Pose",
+    "sanskrit_name": "Gomukhasana",
+    "pose_type": "Seated, Hip Opener, Shoulder Stretch",
+    "target_body_parts": "Hips, Shoulders, Triceps",
+    "instructions": "Stack knees on top of each other, sit on a block if needed, reach one arm overhead and the other behind the back to clasp or use a strap."
+  },
+  {
+    "english_name": "Fire Log Pose",
+    "sanskrit_name": "Agnistambhasana",
+    "pose_type": "Seated, Hip Opener",
+    "target_body_parts": "Hips, Glutes",
+    "instructions": "Sit tall, stack shins parallel like logs, flex both feet, and lean forward slightly to intensify the stretch."
+  },
+  {
+    "english_name": "Bound Angle Pose",
+    "sanskrit_name": "Baddha Konasana",
+    "pose_type": "Seated, Hip Opener",
+    "target_body_parts": "Hips, Inner Thighs",
+    "instructions": "Bring the soles of the feet together, let knees drop open, hold feet or ankles, and hinge forward from the hips."
+  },
+  {
+    "english_name": "Hero Pose",
+    "sanskrit_name": "Virasana",
+    "pose_type": "Seated, Stretch",
+    "target_body_parts": "Quads, Knees, Ankles",
+    "instructions": "Kneel with knees together, sit between the heels on the floor or block, and lengthen the spine while relaxing shoulders."
+  },
+  {
+    "english_name": "Reclined Hero Pose",
+    "sanskrit_name": "Supta Virasana",
+    "pose_type": "Supine, Backbend, Quad Stretch",
+    "target_body_parts": "Quads, Hip Flexors, Ankles",
+    "instructions": "From Hero Pose, recline onto forearms and eventually back, supporting with bolsters if needed, and keep knees grounded."
+  },
+  {
+    "english_name": "Seated Forward Fold",
+    "sanskrit_name": "Paschimottanasana",
+    "pose_type": "Seated, Forward Fold",
+    "target_body_parts": "Hamstrings, Calves, Spine",
+    "instructions": "Sit tall, extend legs forward, flex feet, reach through the arms, and fold from the hips with a long spine."
+  },
+  {
+    "english_name": "Staff Pose",
+    "sanskrit_name": "Dandasana",
+    "pose_type": "Seated, Foundation",
+    "target_body_parts": "Spine, Core, Hamstrings",
+    "instructions": "Sit with legs extended, press palms beside hips, lengthen the spine, and flex the feet while engaging the thighs."
+  },
+  {
+    "english_name": "Boat Pose",
+    "sanskrit_name": "Navasana",
+    "pose_type": "Seated, Balance, Core",
+    "target_body_parts": "Core, Hip Flexors, Spine",
+    "instructions": "Balance on the sit bones, lift shins parallel or extend legs, lengthen the spine, and reach arms forward."
+  },
+  {
+    "english_name": "Crow Pose",
+    "sanskrit_name": "Bakasana",
+    "pose_type": "Arm Balance, Strength",
+    "target_body_parts": "Wrists, Core, Shoulders",
+    "instructions": "Squat low, place palms shoulder-width, shift weight forward onto triceps, lift feet off the ground, and engage the core."
+  },
+  {
+    "english_name": "Side Plank",
+    "sanskrit_name": "Vasisthasana",
+    "pose_type": "Arm Balance, Strength",
+    "target_body_parts": "Wrists, Core, Obliques",
+    "instructions": "Stack one foot over the other, press the supporting hand into the mat, lift hips, and reach the top arm skyward."
+  },
+  {
+    "english_name": "Plank Pose",
+    "sanskrit_name": "Phalakasana",
+    "pose_type": "Arm Balance, Strength",
+    "target_body_parts": "Core, Shoulders, Wrists",
+    "instructions": "Stack shoulders over wrists, press the heels back, engage the core, and keep a straight line from head to heels."
+  },
+  {
+    "english_name": "Forearm Plank",
+    "sanskrit_name": "Makara Adho Mukha Svanasana",
+    "pose_type": "Strength, Arm Balance",
+    "target_body_parts": "Core, Shoulders, Upper Back",
+    "instructions": "Place forearms parallel, press elbows into the mat, tuck toes under, and create one long line from shoulders to heels."
+  },
+  {
+    "english_name": "Dolphin Pose",
+    "sanskrit_name": "Ardha Pincha Mayurasana",
+    "pose_type": "Inversion Prep, Shoulder Strength",
+    "target_body_parts": "Shoulders, Upper Back, Hamstrings",
+    "instructions": "From forearm plank, walk feet closer, lift hips high, and release the head between upper arms."
+  },
+  {
+    "english_name": "Downward-Facing Dog",
+    "sanskrit_name": "Adho Mukha Svanasana",
+    "pose_type": "Inversion, Standing, Strength",
+    "target_body_parts": "Hamstrings, Shoulders, Back",
+    "instructions": "Press palms and feet into the mat, lift hips high, lengthen the spine, and gently pedal through the heels."
+  },
+  {
+    "english_name": "Puppy Pose",
+    "sanskrit_name": "Uttana Shishosana",
+    "pose_type": "Heart Opener, Stretch",
+    "target_body_parts": "Shoulders, Upper Back, Spine",
+    "instructions": "From tabletop, walk hands forward, melt chest toward the floor, and keep hips stacked over knees."
+  },
+  {
+    "english_name": "Child's Pose",
+    "sanskrit_name": "Balasana",
+    "pose_type": "Restorative, Forward Fold",
+    "target_body_parts": "Back, Hips, Shoulders",
+    "instructions": "Sit back on heels, lower torso between thighs, extend arms forward, and rest forehead on the mat."
+  },
+  {
+    "english_name": "Thread the Needle",
+    "sanskrit_name": "Parsva Balasana",
+    "pose_type": "Twist, Shoulder Stretch",
+    "target_body_parts": "Shoulders, Upper Back",
+    "instructions": "From tabletop, slide one arm underneath the other, rest the shoulder on the mat, and gently twist while extending the opposite arm overhead."
+  },
+  {
+    "english_name": "Cat Pose",
+    "sanskrit_name": "Marjaryasana",
+    "pose_type": "Spinal Mobility, Warm-Up",
+    "target_body_parts": "Spine, Core",
+    "instructions": "From tabletop, round the spine toward the ceiling, tuck chin to chest, and draw navel toward the spine."
+  },
+  {
+    "english_name": "Cow Pose",
+    "sanskrit_name": "Bitilasana",
+    "pose_type": "Spinal Mobility, Warm-Up",
+    "target_body_parts": "Spine, Chest",
+    "instructions": "From tabletop, drop the belly, lift the tailbone and heart, and gently gaze forward."
+  },
+  {
+    "english_name": "Cat-Cow Stretch",
+    "sanskrit_name": "Marjaryasana-Bitilasana",
+    "pose_type": "Warm-Up, Backbend, Flexion",
+    "target_body_parts": "Spine, Neck, Shoulders",
+    "instructions": "Alternate between arching and rounding the spine with the breath, moving fluidly between Cat and Cow."
+  },
+  {
+    "english_name": "Sphinx Pose",
+    "sanskrit_name": "Salamba Bhujangasana",
+    "pose_type": "Backbend, Gentle",
+    "target_body_parts": "Spine, Chest, Abdomen",
+    "instructions": "Lie on your belly, place elbows under shoulders, press forearms down, and lift the chest while keeping lower body relaxed."
+  },
+  {
+    "english_name": "Cobra Pose",
+    "sanskrit_name": "Bhujangasana",
+    "pose_type": "Backbend, Strength",
+    "target_body_parts": "Spine, Chest, Shoulders",
+    "instructions": "Press tops of feet into the mat, engage legs, lift the chest using back strength, and keep elbows close to the ribs."
+  },
+  {
+    "english_name": "Upward-Facing Dog",
+    "sanskrit_name": "Urdhva Mukha Svanasana",
+    "pose_type": "Backbend, Strength",
+    "target_body_parts": "Chest, Shoulders, Spine",
+    "instructions": "Straighten arms, lift thighs and knees off the mat, broaden the collarbones, and gaze slightly upward."
+  },
+  {
+    "english_name": "Locust Pose",
+    "sanskrit_name": "Salabhasana",
+    "pose_type": "Backbend, Strength",
+    "target_body_parts": "Back, Glutes, Shoulders",
+    "instructions": "Lie on your belly, interlace fingers behind you, lift the chest and legs off the mat, and draw shoulder blades together."
+  },
+  {
+    "english_name": "Bow Pose",
+    "sanskrit_name": "Dhanurasana",
+    "pose_type": "Backbend, Strength",
+    "target_body_parts": "Spine, Chest, Quads",
+    "instructions": "Bend knees, reach back for ankles, kick feet into hands, lift chest and thighs, and lengthen through the front body."
+  },
+  {
+    "english_name": "Camel Pose",
+    "sanskrit_name": "Ustrasana",
+    "pose_type": "Backbend, Heart Opener",
+    "target_body_parts": "Chest, Hip Flexors, Spine",
+    "instructions": "Kneel with hips over knees, place hands on heels or lower back, press hips forward, and lift through the heart."
+  },
+  {
+    "english_name": "Bridge Pose",
+    "sanskrit_name": "Setu Bandhasana",
+    "pose_type": "Backbend, Strength",
+    "target_body_parts": "Glutes, Spine, Hamstrings",
+    "instructions": "Lie on your back, bend knees, press feet and arms into the mat, lift hips, and interlace fingers beneath you."
+  },
+  {
+    "english_name": "Wheel Pose",
+    "sanskrit_name": "Chakrasana",
+    "pose_type": "Backbend, Advanced",
+    "target_body_parts": "Shoulders, Spine, Hip Flexors",
+    "instructions": "Lie on your back, place palms beside ears, press into hands and feet, and lift hips and chest into an arch."
+  },
+  {
+    "english_name": "Fish Pose",
+    "sanskrit_name": "Matsyasana",
+    "pose_type": "Backbend, Heart Opener",
+    "target_body_parts": "Chest, Throat, Upper Back",
+    "instructions": "Lie on your back, prop on forearms, puff the chest, and gently release the crown of the head toward the mat."
+  },
+  {
+    "english_name": "Shoulderstand",
+    "sanskrit_name": "Sarvangasana",
+    "pose_type": "Inversion, Restorative",
+    "target_body_parts": "Shoulders, Neck, Core",
+    "instructions": "Lie supine, lift legs overhead, place hands on the low back, stack hips over shoulders, and keep gaze upward."
+  },
+  {
+    "english_name": "Plow Pose",
+    "sanskrit_name": "Halasana",
+    "pose_type": "Inversion, Forward Fold",
+    "target_body_parts": "Spine, Shoulders, Hamstrings",
+    "instructions": "From Shoulderstand, lower toes toward the floor behind the head, interlace fingers, and breathe into the back body."
+  },
+  {
+    "english_name": "Legs Up the Wall",
+    "sanskrit_name": "Viparita Karani",
+    "pose_type": "Restorative, Inversion",
+    "target_body_parts": "Legs, Lower Back, Nervous System",
+    "instructions": "Scoot hips close to a wall, extend legs up, relax arms by the sides, and soften the breath."
+  },
+  {
+    "english_name": "Happy Baby",
+    "sanskrit_name": "Ananda Balasana",
+    "pose_type": "Supine, Hip Opener",
+    "target_body_parts": "Hips, Lower Back",
+    "instructions": "Lie on back, bend knees toward armpits, hold outer feet, and gently rock side to side."
+  },
+  {
+    "english_name": "Reclined Bound Angle",
+    "sanskrit_name": "Supta Baddha Konasana",
+    "pose_type": "Restorative, Hip Opener",
+    "target_body_parts": "Hips, Groin, Nervous System",
+    "instructions": "Lie back with soles of feet together, place blocks or pillows under knees if desired, and rest hands on belly and heart."
+  },
+  {
+    "english_name": "Supine Twist",
+    "sanskrit_name": "Supta Matsyendrasana",
+    "pose_type": "Supine, Twist",
+    "target_body_parts": "Spine, Lower Back, Shoulders",
+    "instructions": "Lie on back, draw one knee across the body, extend opposite arm to the side, and gaze toward the extended hand."
+  },
+  {
+    "english_name": "Reclined Spinal Twist",
+    "sanskrit_name": "Jathara Parivartanasana",
+    "pose_type": "Supine, Twist, Core",
+    "target_body_parts": "Spine, Obliques, Shoulders",
+    "instructions": "Draw both knees to chest, extend arms wide, drop knees to one side, and keep both shoulders grounded."
+  },
+  {
+    "english_name": "Corpse Pose",
+    "sanskrit_name": "Savasana",
+    "pose_type": "Restorative, Integration",
+    "target_body_parts": "Full Body, Nervous System",
+    "instructions": "Lie comfortably on your back, let feet fall open, rest arms with palms up, close eyes, and relax completely."
+  },
+  {
+    "english_name": "Tree Pose",
+    "sanskrit_name": "Vrksasana",
+    "pose_type": "Standing, Balance",
+    "target_body_parts": "Ankles, Core, Inner Thighs",
+    "instructions": "Root one foot, place the other foot on the inner calf or thigh, engage the standing leg, and bring palms together at heart or overhead."
+  },
+  {
+    "english_name": "Eagle Pose",
+    "sanskrit_name": "Garudasana",
+    "pose_type": "Standing, Balance, Stretch",
+    "target_body_parts": "Shoulders, Hips, Ankles",
+    "instructions": "Wrap one arm under the other, cross one leg over the standing leg, sit back, and lift elbows in line with shoulders."
+  },
+  {
+    "english_name": "Dancer Pose",
+    "sanskrit_name": "Natarajasana",
+    "pose_type": "Standing, Balance, Backbend",
+    "target_body_parts": "Hip Flexors, Shoulders, Core",
+    "instructions": "Shift weight to one foot, catch the opposite foot with the same-side hand, press foot into hand, and reach the free arm forward."
+  },
+  {
+    "english_name": "King Dancer Pose",
+    "sanskrit_name": "Natarajasana Variation",
+    "pose_type": "Standing, Balance, Backbend",
+    "target_body_parts": "Quads, Shoulders, Core",
+    "instructions": "From Dancer Pose, deepen the backbend by drawing the lifted foot closer to the head and keeping hips squared."
+  },
+  {
+    "english_name": "Standing Figure Four",
+    "sanskrit_name": "Eka Pada Utkatasana",
+    "pose_type": "Standing, Balance, Hip Opener",
+    "target_body_parts": "Glutes, Hips, Ankles",
+    "instructions": "Cross one ankle over the opposite thigh, sit back into an imaginary chair, keep chest lifted, and engage the core."
+  },
+  {
+    "english_name": "Standing Side Bend",
+    "sanskrit_name": "Parsva Urdhva Hastasana",
+    "pose_type": "Standing, Side Bend",
+    "target_body_parts": "Side Body, Shoulders, Obliques",
+    "instructions": "Stand tall, interlace fingers overhead, lengthen through the spine, and lean gently to one side while grounding through both feet."
+  },
+  {
+    "english_name": "Revolved Chair Pose",
+    "sanskrit_name": "Parivrtta Utkatasana",
+    "pose_type": "Standing, Twist, Strength",
+    "target_body_parts": "Spine, Core, Glutes",
+    "instructions": "Sit low into Chair Pose, bring palms to heart, twist toward one side, and hook the opposite elbow outside the knee."
+  },
+  {
+    "english_name": "Revolved Crescent Lunge",
+    "sanskrit_name": "Parivrtta Anjaneyasana",
+    "pose_type": "Standing, Twist, Balance",
+    "target_body_parts": "Spine, Hip Flexors, Core",
+    "instructions": "Step into Crescent Lunge, bring palms together, twist toward the front leg, and hook elbow outside the knee while keeping hips level."
+  },
+  {
+    "english_name": "Revolved Triangle Pose",
+    "sanskrit_name": "Parivrtta Trikonasana",
+    "pose_type": "Standing, Twist, Forward Fold",
+    "target_body_parts": "Hamstrings, Spine, Shoulders",
+    "instructions": "Square hips, hinge forward, plant opposite hand outside the front foot, and rotate the chest toward the front leg while reaching the top arm upward."
+  },
+  {
+    "english_name": "Intense Revolved Side Angle",
+    "sanskrit_name": "Parivrtta Parsvakonasana",
+    "pose_type": "Standing, Twist, Strength",
+    "target_body_parts": "Spine, Core, Inner Thighs",
+    "instructions": "From a lunge, hook opposite elbow outside the front knee, extend the back heel long, and lengthen from crown through back foot."
+  },
+  {
+    "english_name": "Wide-Legged Forward Fold with Twist",
+    "sanskrit_name": "Prasarita Padottanasana C Variation",
+    "pose_type": "Standing, Forward Fold, Twist",
+    "target_body_parts": "Hamstrings, Side Body, Shoulders",
+    "instructions": "Fold forward with feet wide, place one hand beneath the face, reach the other arm skyward, and rotate the spine."
+  },
+  {
+    "english_name": "Side Lunge",
+    "sanskrit_name": "Skandasana",
+    "pose_type": "Standing, Hip Opener",
+    "target_body_parts": "Hips, Hamstrings, Ankles",
+    "instructions": "Bend one knee deeply, extend the opposite leg, flex the extended foot, and keep the spine long while palms press at heart or reach forward."
+  },
+  {
+    "english_name": "Triangle Pose Variation",
+    "sanskrit_name": "Trikonasana Variation",
+    "pose_type": "Standing, Flexibility",
+    "target_body_parts": "Side Body, Hamstrings, Shoulders",
+    "instructions": "From Triangle, wrap the top arm behind the back to clasp the inner thigh and open the chest further toward the sky."
+  },
+  {
+    "english_name": "Extended Puppy with Thread",
+    "sanskrit_name": "Parsva Uttana Shishosana",
+    "pose_type": "Stretch, Shoulder Opener",
+    "target_body_parts": "Shoulders, Upper Back, Side Body",
+    "instructions": "In Puppy Pose, thread one arm underneath to add a twist, then switch sides to balance the shoulders."
+  },
+  {
+    "english_name": "Camel Pose Variation",
+    "sanskrit_name": "Kapotasana Prep",
+    "pose_type": "Backbend, Advanced",
+    "target_body_parts": "Hip Flexors, Spine, Shoulders",
+    "instructions": "From Camel, tuck toes, lengthen through the front body, and reach one arm overhead while the opposite hand stays on the heel."
+  },
+  {
+    "english_name": "Bridge Pose with Leg Lift",
+    "sanskrit_name": "Eka Pada Setu Bandha",
+    "pose_type": "Backbend, Strength",
+    "target_body_parts": "Hamstrings, Glutes, Core",
+    "instructions": "Lift into Bridge, extend one leg toward the ceiling, keep hips level, and breathe steadily before switching sides."
+  },
+  {
+    "english_name": "Supported Fish Pose",
+    "sanskrit_name": "Matsyasana Variation",
+    "pose_type": "Restorative, Heart Opener",
+    "target_body_parts": "Chest, Throat, Upper Back",
+    "instructions": "Lie over a bolster or block placed under the upper back, let head rest on another support, and allow arms to drape open."
+  },
+  {
+    "english_name": "Revolved Head to Knee Pose",
+    "sanskrit_name": "Parivrtta Janu Sirsasana",
+    "pose_type": "Seated, Twist, Side Bend",
+    "target_body_parts": "Side Body, Hamstrings, Spine",
+    "instructions": "Extend one leg, bend the other foot inside the thigh, reach opposite arm overhead toward the extended foot, and twist the chest skyward."
+  },
+  {
+    "english_name": "Head to Knee Pose",
+    "sanskrit_name": "Janu Sirsasana",
+    "pose_type": "Seated, Forward Fold",
+    "target_body_parts": "Hamstrings, Lower Back, Hips",
+    "instructions": "Extend one leg straight, place the other foot inside the thigh, and fold over the extended leg while keeping the spine long."
+  },
+  {
+    "english_name": "Wide-Angle Seated Forward Bend",
+    "sanskrit_name": "Upavistha Konasana",
+    "pose_type": "Seated, Flexibility",
+    "target_body_parts": "Inner Thighs, Hamstrings, Spine",
+    "instructions": "Sit with legs wide, flex the feet, hinge forward from the hips, and walk hands along the floor."
+  },
+  {
+    "english_name": "Seated Side Bend",
+    "sanskrit_name": "Parsva Sukhasana",
+    "pose_type": "Seated, Side Bend",
+    "target_body_parts": "Side Body, Shoulders, Neck",
+    "instructions": "Sit cross-legged, place one hand on the floor, reach the other arm overhead, and arc gently to the side while keeping both sit bones grounded."
+  },
+  {
+    "english_name": "Seated Twist",
+    "sanskrit_name": "Ardha Matsyendrasana",
+    "pose_type": "Seated, Twist",
+    "target_body_parts": "Spine, Hips, Shoulders",
+    "instructions": "Cross one leg over the other, lengthen the spine, hook opposite elbow outside the knee, and twist toward the back hand."
+  },
+  {
+    "english_name": "Marichi's Pose C",
+    "sanskrit_name": "Marichyasana C",
+    "pose_type": "Seated, Twist",
+    "target_body_parts": "Spine, Hips, Shoulders",
+    "instructions": "Bend one knee close to the chest, wrap opposite arm around the shin, and rotate the torso toward the bent knee."
+  },
+  {
+    "english_name": "Gate Pose",
+    "sanskrit_name": "Parighasana",
+    "pose_type": "Kneeling, Side Bend",
+    "target_body_parts": "Side Body, Obliques, Hamstrings",
+    "instructions": "Kneel on one knee, extend the other leg to the side, reach the same-side arm overhead, and stretch toward the extended leg."
+  },
+  {
+    "english_name": "Camel Twist",
+    "sanskrit_name": "Parivrtta Ustrasana",
+    "pose_type": "Backbend, Twist",
+    "target_body_parts": "Spine, Hip Flexors, Shoulders",
+    "instructions": "From Camel Pose, reach one arm across the body to the opposite heel, extend the other arm skyward, and rotate the chest."
+  },
+  {
+    "english_name": "Forearm Stand Prep",
+    "sanskrit_name": "Pincha Mayurasana Prep",
+    "pose_type": "Inversion Prep, Strength",
+    "target_body_parts": "Shoulders, Core, Wrists",
+    "instructions": "From Dolphin Pose, walk feet closer, shift shoulders over elbows, and practice small hops to build strength."
+  },
+  {
+    "english_name": "Handstand L Shape",
+    "sanskrit_name": "Adho Mukha Vrksasana Prep",
+    "pose_type": "Inversion Prep, Strength",
+    "target_body_parts": "Shoulders, Core, Wrists",
+    "instructions": "Place feet on a wall in an L shape, stack shoulders over wrists, and engage the core to stabilize."
+  },
+  {
+    "english_name": "Standing Hand to Big Toe",
+    "sanskrit_name": "Utthita Hasta Padangusthasana",
+    "pose_type": "Standing, Balance, Flexibility",
+    "target_body_parts": "Hamstrings, Ankles, Core",
+    "instructions": "Stand tall, lift one leg, grab the big toe with same-side hand, and extend the leg forward or to the side while engaging the core."
+  },
+  {
+    "english_name": "Standing Cross-Legged Forward Fold",
+    "sanskrit_name": "Parivrtta Padottanasana Variation",
+    "pose_type": "Standing, Forward Fold",
+    "target_body_parts": "Hamstrings, IT Band, Calves",
+    "instructions": "Cross ankles, hinge at the hips, fold forward, and let the head relax while grounding through the outer edges of the feet."
+  },
+  {
+    "english_name": "Cow Pose Neck Stretch",
+    "sanskrit_name": "Bitilasana Variation",
+    "pose_type": "Spinal Mobility, Neck Release",
+    "target_body_parts": "Neck, Spine, Shoulders",
+    "instructions": "In Cow Pose, gently turn head side to side to release the neck while keeping shoulders away from ears."
+  },
+  {
+    "english_name": "Puppy Pose with Block",
+    "sanskrit_name": "Uttana Shishosana Variation",
+    "pose_type": "Shoulder Stretch, Restorative",
+    "target_body_parts": "Shoulders, Upper Back, Arms",
+    "instructions": "Place elbows on a block, bring palms together, drop the head between arms, and breathe into the triceps and armpits."
+  },
+  {
+    "english_name": "Shoulder Stretch at Wall",
+    "sanskrit_name": "Gomukhasana Arms at Wall",
+    "pose_type": "Standing, Shoulder Stretch",
+    "target_body_parts": "Shoulders, Chest, Biceps",
+    "instructions": "Place forearms on the wall, step back to drop the chest, and gently press to open the shoulders."
+  },
+  {
+    "english_name": "Wrist Stretch Tabletop",
+    "sanskrit_name": "Hasta Uttanasana Prep",
+    "pose_type": "Stretch, Wrist Mobility",
+    "target_body_parts": "Wrists, Forearms",
+    "instructions": "From tabletop, rotate fingers to face knees, lean hips back, and keep palms flat to stretch forearms."
+  },
+  {
+    "english_name": "Forearm Tabletop Stretch",
+    "sanskrit_name": "Manibandha Stretch",
+    "pose_type": "Stretch, Wrist Mobility",
+    "target_body_parts": "Wrists, Forearms, Elbows",
+    "instructions": "Place backs of hands on the mat with fingers pointing inward, slowly press palms toward the floor, and stop before discomfort."
+  },
+  {
+    "english_name": "Neck Release",
+    "sanskrit_name": "Greeva Sanchalana",
+    "pose_type": "Seated, Neck Stretch",
+    "target_body_parts": "Neck, Upper Back, Shoulders",
+    "instructions": "Sit tall, drop right ear toward right shoulder, reach left arm to the side, and gently hold the head to deepen the stretch."
+  },
+  {
+    "english_name": "Supported Neck Curl",
+    "sanskrit_name": "Jalandhara Bandha Prep",
+    "pose_type": "Supine, Neck Strength",
+    "target_body_parts": "Neck, Upper Spine, Core",
+    "instructions": "Lie on your back, interlace hands behind the head, lift head and shoulders slightly, and draw chin toward chest."
+  },
+  {
+    "english_name": "Bharadvaja's Twist",
+    "sanskrit_name": "Bharadvajasana I",
+    "pose_type": "Seated, Twist, Hip Opener",
+    "target_body_parts": "Hips, Spine, Shoulders",
+    "instructions": "Sit with both legs to one side, root sitting bones evenly, wrap the opposite hand around the knee, and twist gently toward the back shoulder."
+  }
+]

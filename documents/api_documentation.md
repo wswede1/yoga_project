@@ -7,6 +7,8 @@ The Yoga Pose API allows users to retrieve details about yoga poses based on a t
    2. input: Body part ("hips", "back", "shoulders")
    3. output: A list of poses and instructions that target the body part.
 
+The dataset currently includes 100 curated poses that cover shoulders, hips, spine, hamstrings, core, wrists, and more. See `data/pose_catalog.json` or run `python scripts/pose_stats.py` for the latest coverage breakdown.
+
 ## Web Interface
 You can access the Yoga Pose API through a web-based interface at 'http://127.0.0.1:5000' and enter a body part to retrieve relevant yoga poses. The response will display the pose information in JSON format.
 For example, typing "hips" returns the following:

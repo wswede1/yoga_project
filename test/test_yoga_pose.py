@@ -1,20 +1,19 @@
 from model.yoga_pose import YogaPose
-from model.enums import BodyPart, PoseCategory, YogaStyle, PoseBenefit
 
 
-def test_yoga_pose_initialization():
+def test_yoga_pose_to_dict_splits_lists():
     pose = YogaPose(
-        id=1,
-        name="Downward Dog",
-        instructions="Start on all fours...",
-        target_body_parts=[BodyPart.shoulders, BodyPart.wrists],
-        category=PoseCategory.flexibility,
-        style=YogaStyle.Hatha,
-        benefits=[PoseBenefit.stress_relief, PoseBenefit.shoulder_strength]
+        english_name="Downward-Facing Dog",
+        sanskrit_name="Adho Mukha Svanasana",
+        pose_type="Inversion, Strength",
+        target_body_parts="Hamstrings, Shoulders",
+        instructions="Press through the palms and lift your hips to form an inverted V.",
     )
-    assert pose.name == "Downward Dog"
-    assert pose.instructions == "Start on all fours..."
-    assert BodyPart.shoulders in pose.target_body_parts
-    assert PoseCategory.flexibility == pose.category
-    assert YogaStyle.Hatha == pose.style
-    assert PoseBenefit.stress_relief in pose.benefits
+
+    data = pose.to_dict()
+
+    assert data["english_name"] == "Downward-Facing Dog"
+    assert data["sanskrit_name"] == "Adho Mukha Svanasana"
+    assert data["pose_type"] == ["Inversion", "Strength"]
+    assert data["target_body_parts"] == ["Hamstrings", "Shoulders"]
+    assert "press through the palms" in data["instructions"].lower()

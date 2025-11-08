@@ -41,19 +41,25 @@ def doc() -> str:
 @app.route("/pose", methods=["GET"])
 @cross_origin(origin='localhost', headers=['Content-Type', 'Authorization'])
 def get_pose():
-    body_part = request.args.get('body_part')
-    app.logger.info(f"/pose - Got request for body part: {body_part}")
+    raw_body_part = request.args.get('body_part', '')
+    body_part = raw_body_part.strip().lower()
+    app.logger.info(f"/pose - Got request for body part: {raw_body_part}")
 
     if not body_part:
-        return {"error": "Body part is required"}, 400
+        return jsonify({"error": "Body part is required"}), 400
 
-    poses = yoga_service.get_poses_by_body_part(body_part)
+    try:
+        poses = yoga_service.get_poses_by_body_part(body_part)
+    except Exception as exc:  # pragma: no cover - log unexpected failures
+        app.logger.exception("Unhandled error retrieving poses")
+        return jsonify({"error": "Unexpected error retrieving poses"}), 500
+
     if poses:
-        app.logger.info(f"/pose - Found poses: {poses}")
-        return poses, 200  # Directly return the list of dictionaries
-    else:
-        app.logger.info(f"/pose - No poses found for body part: {body_part}")
-        return {"message": "No poses found for this body part."}, 404
+        app.logger.info(f"/pose - Found {len(poses)} poses for body part: {body_part}")
+        return jsonify({"poses": poses}), 200
+
+    app.logger.info(f"/pose - No poses found for body part: {body_part}")
+    return jsonify({"message": "No poses found for this body part."}), 404
 
 
 if __name__ == "__main__":

@@ -1,40 +1,62 @@
 from model.yoga_service import YogaService
-from db.mysql_repository import MySQLRepository
 from model.yoga_pose import YogaPose
-from model.enums import BodyPart
 
-# Initialize the service repo
-repository = MySQLRepository()
-service = YogaService(repository)
+
+class StubRepository:
+    def __init__(self):
+        self.added_poses = []
+        self.pose_lookup = {}
+        self.pose_by_target = {}
+
+    def add_pose(self, pose):
+        self.added_poses.append(pose)
+        return pose
+
+    def load_pose(self, name):
+        return self.pose_lookup.get(name)
+
+    def get_poses_by_body_part(self, body_part):
+        return self.pose_by_target.get(body_part, [])
+
+
+def build_pose(name):
+    return YogaPose(
+        english_name=name,
+        sanskrit_name="Testasana",
+        pose_type="Balance, Strength",
+        target_body_parts="Hips, Core",
+        instructions="Hold steady for five breaths.",
+    )
 
 
 def test_add_pose():
-    pose = YogaPose(name="Test Pose", instructions="Test instructions")
-    repository.add_pose = lambda pose: pose  # Mock method
+    repository = StubRepository()
+    service = YogaService(repository)
+
+    pose = build_pose("Test Pose")
     result = service.add_pose(pose)
-    assert result.name == "Test Pose"
-    assert result.instructions == "Test instructions"
+
+    assert result.english_name == "Test Pose"
+    assert repository.added_poses == [pose]
 
 
 def test_get_pose():
-    pose = YogaPose(name="Test Pose", instructions="Test instructions")
-    repository.load_pose = lambda name: pose  # Mock method
-    result = service.get_pose("Test Pose")
-    assert result.name == "Test Pose"
-    assert result.instructions == "Test instructions"
+    repository = StubRepository()
+    service = YogaService(repository)
+    pose = build_pose("Rest Pose")
+    repository.pose_lookup["Rest Pose"] = pose
+
+    result = service.get_pose("Rest Pose")
+
+    assert result is pose
 
 
 def test_get_poses_by_body_part():
-    pose = YogaPose(name="Test Pose", instructions="Test instructions")
-    repository.get_poses_by_body_part = lambda body_part: [pose]  # Mock method
+    repository = StubRepository()
+    service = YogaService(repository)
+    pose = build_pose("Core Twist")
+    repository.pose_by_target["hips"] = [pose]
+
     result = service.get_poses_by_body_part("hips")
-    assert len(result) == 1
-    assert result[0].name == "Test Pose"
-    assert result[0].instructions == "Test instructions"
 
-
-if __name__ == "__main__":
-    test_add_pose()
-    test_get_pose()
-    test_get_poses_by_body_part()
-    print("All tests passed!")
+    assert result == [pose.to_dict()]

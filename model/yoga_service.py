@@ -15,4 +15,4 @@ class YogaService:
 
     def get_poses_by_body_part(self, body_part: str) -> list:
         poses = self.repository.get_poses_by_body_part(body_part)
-        return [pose.__dict__ for pose in poses]
+        return [pose.to_dict() for pose in poses]

@@ -3,14 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yoga Pose Finder</title>
+    <title>YogaDB | Yoga Pose Finder</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+    <style>
+        :root {
+            --brand-primary: #2f6b4f;
+            --brand-secondary: #9bbf8c;
+            --brand-dark: #0f1c12;
+            --brand-mid: #1f3423;
+            --brand-light: #d7e4d6;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at top, rgba(47, 107, 79, 0.2), transparent),
+                        linear-gradient(180deg, var(--brand-dark) 0%, var(--brand-mid) 100%);
+            color: var(--brand-light);
+        }
+
+        .hero-title {
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .brand-accent {
+            background: linear-gradient(120deg, var(--brand-primary), var(--brand-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-glass {
+            background: rgba(12, 26, 18, 0.78);
+            border: 1px solid rgba(155, 191, 140, 0.2);
+            box-shadow: 0 20px 45px rgba(15, 30, 20, 0.35);
+            backdrop-filter: blur(14px);
+        }
+
+        .badge-soft {
+            background-color: rgba(155, 191, 140, 0.18);
+            border: 1px solid rgba(155, 191, 140, 0.4);
+            color: var(--brand-secondary);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+            border: 0;
+            font-weight: 600;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 24px rgba(47, 107, 79, 0.35);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card-glass h3 {
+            color: #f8fafc;
+        }
+
+        .footer-note {
+            color: rgba(215, 228, 214, 0.6);
+        }
+    </style>
 </head>
 <body>
-    <h1>Find a Yoga Pose</h1>
-    <form action="/pose" method="get">
-        <label for="body_part">Body Part:</label>
-        <input type="text" id="body_part" name="body_part" required>
-        <button type="submit">Find Pose</button>
-    </form>
+    <main class="container py-5">
+        <section class="row justify-content-center mb-5 text-center">
+            <div class="col-lg-8">
+                <h1 class="hero-title display-4">
+                    <span class="brand-accent">YogaDB</span>
+                </h1>
+                <p class="lead mt-3 text-light">
+                    Choose a body part and explore curated yoga poses
+                    with clear, actionable instructions.
+                </p>
+            </div>
+        </section>
+
+        <section class="row justify-content-center mb-4">
+            <div class="col-lg-6">
+                <div class="card card-glass p-4">
+                    <form id="pose-form" class="row gy-3">
+                        <div class="col-12">
+                            <label for="body-part" class="form-label text-uppercase small tracking-wider">
+                                Choose a body part
+                            </label>
+                            <select id="body-part" class="form-select form-select-lg bg-dark text-light border-secondary">
+                                <option value="hips">Hips</option>
+                                <option value="shoulders">Shoulders</option>
+                                <option value="spine">Spine</option>
+                                <option value="hamstrings">Hamstrings</option>
+                                <option value="upper back">Upper Back</option>
+                                <option value="lower back">Lower Back</option>
+                                <option value="neck">Neck</option>
+                                <option value="wrists">Wrists</option>
+                                <option value="knees">Knees</option>
+                            </select>
+                            <div class="form-text text-secondary mt-2">
+                                Need something specific? Type your own keyword:
+                            </div>
+                            <input
+                                type="text"
+                                id="custom-body-part"
+                                class="form-control form-control-lg bg-dark text-light border-secondary mt-2"
+                                placeholder="e.g., glutes, shoulders, hips"
+                            >
+                        </div>
+                        <div class="col-12 d-grid">
+                            <button type="submit" class="btn btn-gradient btn-lg">
+                                Find poses
+                            </button>
+                        </div>
+                    </form>
+                    <div id="status-message" class="mt-3 small text-secondary"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="results-section" class="row">
+            <div class="col-12">
+                <div id="pose-results" class="results-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center pb-4 footer-note small">
+        Built with Flask · MySQL · Bootstrap
+    </footer>
+
+    <script>
+        const form = document.getElementById("pose-form");
+        const resultsContainer = document.getElementById("pose-results");
+        const statusMessage = document.getElementById("status-message");
+
+        function setStatus(message, tone = "info") {
+            if (!message) {
+                statusMessage.textContent = "";
+                return;
+            }
+            const toneClass = tone === "error" ? "text-danger" : "text-secondary";
+            statusMessage.className = `mt-3 small ${toneClass}`;
+            statusMessage.textContent = message;
+        }
+
+        function renderPoseCard(pose) {
+            const card = document.createElement("article");
+            card.className = "card card-glass p-4 h-100";
+
+            const poseTypes = pose.pose_type.length
+                ? pose.pose_type.map((item) => `<span class="badge badge-soft me-1 mb-1">${item}</span>`).join("")
+                : `<span class="text-secondary small">General practice</span>`;
+
+            const bodyParts = pose.target_body_parts.length
+                ? pose.target_body_parts.map((item) => `<span class="badge rounded-pill text-bg-dark border border-secondary-subtle me-1 mb-1">${item}</span>`).join("")
+                : `<span class="text-secondary small">Whole body</span>`;
+
+            card.innerHTML = `
+                <h3 class="h4">${pose.english_name}</h3>
+                <p class="text-secondary small fst-italic mb-2">${pose.sanskrit_name || "—"}</p>
+                <div class="mb-3">
+                    <span class="text-uppercase small text-secondary">Pose style</span>
+                    <div class="mt-2 d-flex flex-wrap">${poseTypes}</div>
+                </div>
+                <div class="mb-3">
+                    <span class="text-uppercase small text-secondary">Targets</span>
+                    <div class="mt-2 d-flex flex-wrap">${bodyParts}</div>
+                </div>
+                <div>
+                    <span class="text-uppercase small text-secondary">How to practice</span>
+                    <p class="mt-2 text-light">${pose.instructions}</p>
+                </div>
+            `;
+
+            return card;
+        }
+
+        async function fetchPoses(bodyPart) {
+            setStatus("Looking for poses...", "info");
+            resultsContainer.innerHTML = "";
+
+            try {
+                const response = await fetch(`/pose?body_part=${encodeURIComponent(bodyPart)}`);
+                const data = await response.json();
+
+                if (!response.ok) {
+                    const errorMessage = data.error || data.message || "Something went wrong.";
+                    setStatus(errorMessage, "error");
+                    return;
+                }
+
+                const poses = data.poses || [];
+                if (!poses.length) {
+                    setStatus("No poses found. Try another focus area.", "info");
+                    return;
+                }
+
+                const fragment = document.createDocumentFragment();
+                poses.forEach((pose) => fragment.appendChild(renderPoseCard(pose)));
+                resultsContainer.appendChild(fragment);
+                setStatus("");
+            } catch (error) {
+                console.error(error);
+                setStatus("Unable to reach the API right now. Please try again later.", "error");
+            }
+        }
+
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const selectValue = document.getElementById("body-part").value.trim();
+            const customValue = document.getElementById("custom-body-part").value.trim();
+
+            const bodyPart = (customValue || selectValue).toLowerCase();
+            if (!bodyPart) {
+                setStatus("Please choose or enter a body part to get started.", "error");
+                return;
+            }
+
+            fetchPoses(bodyPart);
+        });
+
+        // Auto-run initial search to showcase the UI.
+        fetchPoses("hips");
+    </script>
 </body>
 </html>
