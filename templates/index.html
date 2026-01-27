@@ -73,6 +73,138 @@
         .footer-note {
             color: rgba(215, 228, 214, 0.6);
         }
+
+        /* Routine Generator Styles */
+        .routine-section {
+            border-top: 1px solid rgba(155, 191, 140, 0.2);
+            margin-top: 3rem;
+            padding-top: 3rem;
+        }
+
+        .multi-select-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+        }
+
+        .body-part-checkbox {
+            display: none;
+        }
+
+        .body-part-label {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid rgba(155, 191, 140, 0.3);
+            border-radius: 0.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+        }
+
+        .body-part-checkbox:checked + .body-part-label {
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+            border-color: var(--brand-secondary);
+            color: white;
+        }
+
+        .body-part-label:hover {
+            border-color: var(--brand-secondary);
+        }
+
+        .routine-output {
+            background: rgba(12, 26, 18, 0.9);
+            border: 1px solid rgba(155, 191, 140, 0.3);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .segment-item {
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            background: rgba(155, 191, 140, 0.08);
+            border-radius: 0.5rem;
+            border-left: 3px solid var(--brand-secondary);
+        }
+
+        .segment-item.active {
+            background: rgba(155, 191, 140, 0.2);
+            border-left-color: var(--brand-primary);
+        }
+
+        .segment-item.completed {
+            opacity: 0.5;
+        }
+
+        .tts-controls {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .tts-controls button {
+            flex: 1;
+            min-width: 100px;
+        }
+
+        .progress-bar-container {
+            height: 6px;
+            background: rgba(155, 191, 140, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--brand-primary), var(--brand-secondary));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .time-display {
+            font-family: monospace;
+            font-size: 1.25rem;
+            color: var(--brand-secondary);
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .error-message {
+            color: #f87171;
+            background: rgba(248, 113, 113, 0.1);
+            border: 1px solid rgba(248, 113, 113, 0.3);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tts-unsupported {
+            color: #fbbf24;
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -92,30 +224,32 @@
         <section class="row justify-content-center mb-4">
             <div class="col-lg-6">
                 <div class="card card-glass p-4">
-                    <form id="pose-form" class="row gy-3">
+                    <form action="/" method="GET" class="row gy-3">
                         <div class="col-12">
                             <label for="body-part" class="form-label text-uppercase small tracking-wider">
                                 Choose a body part
                             </label>
-                            <select id="body-part" class="form-select form-select-lg bg-dark text-light border-secondary">
-                                <option value="hips">Hips</option>
-                                <option value="shoulders">Shoulders</option>
-                                <option value="spine">Spine</option>
-                                <option value="hamstrings">Hamstrings</option>
-                                <option value="upper back">Upper Back</option>
-                                <option value="lower back">Lower Back</option>
-                                <option value="neck">Neck</option>
-                                <option value="wrists">Wrists</option>
-                                <option value="knees">Knees</option>
+                            <select name="body-part" id="body-part" class="form-select form-select-lg bg-dark text-light border-secondary">
+                                <option value="hips" {% if selected_body_part == 'hips' or (not selected_body_part and not custom_body_part) %}selected{% endif %}>Hips</option>
+                                <option value="shoulders" {% if selected_body_part == 'shoulders' %}selected{% endif %}>Shoulders</option>
+                                <option value="spine" {% if selected_body_part == 'spine' %}selected{% endif %}>Spine</option>
+                                <option value="hamstrings" {% if selected_body_part == 'hamstrings' %}selected{% endif %}>Hamstrings</option>
+                                <option value="upper back" {% if selected_body_part == 'upper back' %}selected{% endif %}>Upper Back</option>
+                                <option value="lower back" {% if selected_body_part == 'lower back' %}selected{% endif %}>Lower Back</option>
+                                <option value="neck" {% if selected_body_part == 'neck' %}selected{% endif %}>Neck</option>
+                                <option value="wrists" {% if selected_body_part == 'wrists' %}selected{% endif %}>Wrists</option>
+                                <option value="knees" {% if selected_body_part == 'knees' %}selected{% endif %}>Knees</option>
                             </select>
                             <div class="form-text text-secondary mt-2">
                                 Need something specific? Type your own keyword:
                             </div>
                             <input
                                 type="text"
+                                name="custom-body-part"
                                 id="custom-body-part"
                                 class="form-control form-control-lg bg-dark text-light border-secondary mt-2"
                                 placeholder="e.g., glutes, shoulders, hips"
+                                value="{{ custom_body_part if custom_body_part else '' }}"
                             >
                         </div>
                         <div class="col-12 d-grid">
@@ -124,14 +258,190 @@
                             </button>
                         </div>
                     </form>
-                    <div id="status-message" class="mt-3 small text-secondary"></div>
+                    {% if error_message %}
+                    <div class="mt-3 small text-danger">{{ error_message }}</div>
+                    {% endif %}
                 </div>
             </div>
         </section>
 
         <section id="results-section" class="row">
             <div class="col-12">
-                <div id="pose-results" class="results-grid"></div>
+                {% if poses %}
+                <div class="results-grid">
+                    {% for pose in poses %}
+                    <article class="card card-glass p-4 h-100">
+                        <h3 class="h4">{{ pose.english_name }}</h3>
+                        <p class="text-secondary small fst-italic mb-2">
+                            {{ pose.sanskrit_name if pose.sanskrit_name else "—" }}
+                        </p>
+                        <div class="mb-3">
+                            <span class="text-uppercase small text-secondary">Pose style</span>
+                            <div class="mt-2 d-flex flex-wrap">
+                                {% if pose.pose_type %}
+                                    {% for type in pose.pose_type %}
+                                    <span class="badge badge-soft me-1 mb-1">{{ type }}</span>
+                                    {% endfor %}
+                                {% else %}
+                                    <span class="text-secondary small">General practice</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <span class="text-uppercase small text-secondary">Targets</span>
+                            <div class="mt-2 d-flex flex-wrap">
+                                {% if pose.target_body_parts %}
+                                    {% for part in pose.target_body_parts %}
+                                    <span class="badge rounded-pill text-bg-dark border border-secondary-subtle me-1 mb-1">{{ part }}</span>
+                                    {% endfor %}
+                                {% else %}
+                                    <span class="text-secondary small">Whole body</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div>
+                            <span class="text-uppercase small text-secondary">How to practice</span>
+                            <p class="mt-2 text-light">{{ pose.instructions }}</p>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </section>
+
+        <!-- Guided Routine Generator Section -->
+        <section class="routine-section">
+            <div class="row justify-content-center mb-4 text-center">
+                <div class="col-lg-8">
+                    <h2 class="h3 brand-accent">Guided Routine Generator</h2>
+                    <p class="text-secondary">
+                        Select your preferences and let AI create a personalized yoga routine with voice guidance.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-8">
+                    <div class="card card-glass p-4">
+                        <div class="mb-4">
+                            <label class="form-label text-uppercase small tracking-wider">
+                                Select body parts to focus on
+                            </label>
+                            <div class="multi-select-grid" id="body-parts-grid">
+                                <div>
+                                    <input type="checkbox" id="bp-hips" value="hips" class="body-part-checkbox" checked>
+                                    <label for="bp-hips" class="body-part-label">Hips</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="bp-shoulders" value="shoulders" class="body-part-checkbox">
+                                    <label for="bp-shoulders" class="body-part-label">Shoulders</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="bp-spine" value="spine" class="body-part-checkbox">
+                                    <label for="bp-spine" class="body-part-label">Spine</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="bp-hamstrings" value="hamstrings" class="body-part-checkbox">
+                                    <label for="bp-hamstrings" class="body-part-label">Hamstrings</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="bp-upper-back" value="upper back" class="body-part-checkbox">
+                                    <label for="bp-upper-back" class="body-part-label">Upper Back</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="bp-lower-back" value="lower back" class="body-part-checkbox">
+                                    <label for="bp-lower-back" class="body-part-label">Lower Back</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="bp-neck" value="neck" class="body-part-checkbox">
+                                    <label for="bp-neck" class="body-part-label">Neck</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="bp-core" value="core" class="body-part-checkbox">
+                                    <label for="bp-core" class="body-part-label">Core</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="bp-legs" value="legs" class="body-part-checkbox">
+                                    <label for="bp-legs" class="body-part-label">Legs</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="routine-duration" class="form-label text-uppercase small tracking-wider">
+                                    Duration (minutes)
+                                </label>
+                                <select id="routine-duration" class="form-select form-select-lg bg-dark text-light border-secondary">
+                                    <option value="5">5 minutes</option>
+                                    <option value="10" selected>10 minutes</option>
+                                    <option value="15">15 minutes</option>
+                                    <option value="20">20 minutes</option>
+                                    <option value="30">30 minutes</option>
+                                    <option value="45">45 minutes</option>
+                                    <option value="60">60 minutes</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="routine-difficulty" class="form-label text-uppercase small tracking-wider">
+                                    Difficulty
+                                </label>
+                                <select id="routine-difficulty" class="form-select form-select-lg bg-dark text-light border-secondary">
+                                    <option value="beginner" selected>Beginner</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="button" id="generate-routine-btn" class="btn btn-gradient btn-lg">
+                                <span id="generate-btn-text">Generate Routine</span>
+                                <span id="generate-btn-spinner" class="loading-spinner hidden"></span>
+                            </button>
+                        </div>
+
+                        <div id="routine-error" class="error-message hidden"></div>
+                        <div id="tts-unsupported-warning" class="tts-unsupported hidden">
+                            Your browser does not support text-to-speech. The routine will be displayed but cannot be read aloud.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Routine Output and TTS Controls -->
+            <div id="routine-output-section" class="row justify-content-center hidden">
+                <div class="col-lg-8">
+                    <div class="card card-glass p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h3 class="h5 mb-0">Your Routine</h3>
+                            <span class="time-display">
+                                <span id="elapsed-time">0:00</span> / <span id="total-time">0:00</span>
+                            </span>
+                        </div>
+
+                        <div class="progress-bar-container mb-3">
+                            <div id="progress-bar" class="progress-bar-fill"></div>
+                        </div>
+
+                        <div class="tts-controls mb-4">
+                            <button type="button" id="play-btn" class="btn btn-gradient">
+                                Play
+                            </button>
+                            <button type="button" id="pause-btn" class="btn btn-outline-light" disabled>
+                                Pause
+                            </button>
+                            <button type="button" id="stop-btn" class="btn btn-outline-light" disabled>
+                                Stop
+                            </button>
+                        </div>
+
+                        <div id="routine-segments" class="routine-output">
+                            <!-- Segments will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -141,98 +451,399 @@
     </footer>
 
     <script>
-        const form = document.getElementById("pose-form");
-        const resultsContainer = document.getElementById("pose-results");
-        const statusMessage = document.getElementById("status-message");
+    (function() {
+        'use strict';
 
-        function setStatus(message, tone = "info") {
-            if (!message) {
-                statusMessage.textContent = "";
+        // DOM Elements
+        const generateBtn = document.getElementById('generate-routine-btn');
+        const generateBtnText = document.getElementById('generate-btn-text');
+        const generateBtnSpinner = document.getElementById('generate-btn-spinner');
+        const routineError = document.getElementById('routine-error');
+        const ttsWarning = document.getElementById('tts-unsupported-warning');
+        const routineOutputSection = document.getElementById('routine-output-section');
+        const routineSegments = document.getElementById('routine-segments');
+        const playBtn = document.getElementById('play-btn');
+        const pauseBtn = document.getElementById('pause-btn');
+        const stopBtn = document.getElementById('stop-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const elapsedTimeEl = document.getElementById('elapsed-time');
+        const totalTimeEl = document.getElementById('total-time');
+
+        // State
+        let segments = [];
+        let totalSeconds = 0;
+        let currentSegmentIndex = 0;
+        let isPlaying = false;
+        let isPaused = false;
+        let startTime = 0;
+        let pausedTime = 0;
+        let timerInterval = null;
+        let pauseTimeout = null;
+        let synth = null;
+        let currentUtterance = null;
+
+        // Check TTS support
+        const ttsSupported = 'speechSynthesis' in window;
+        if (!ttsSupported) {
+            ttsWarning.classList.remove('hidden');
+        }
+
+        // Utility functions
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function showError(message) {
+            routineError.textContent = message;
+            routineError.classList.remove('hidden');
+        }
+
+        function hideError() {
+            routineError.classList.add('hidden');
+        }
+
+        function setLoading(loading) {
+            generateBtn.disabled = loading;
+            if (loading) {
+                generateBtnText.textContent = 'Generating...';
+                generateBtnSpinner.classList.remove('hidden');
+            } else {
+                generateBtnText.textContent = 'Generate Routine';
+                generateBtnSpinner.classList.add('hidden');
+            }
+        }
+
+        function getSelectedBodyParts() {
+            const checkboxes = document.querySelectorAll('.body-part-checkbox:checked');
+            return Array.from(checkboxes).map(cb => cb.value);
+        }
+
+        // Render segments to the UI
+        function renderSegments() {
+            routineSegments.innerHTML = '';
+            segments.forEach((segment, index) => {
+                const div = document.createElement('div');
+                div.className = 'segment-item';
+                div.id = `segment-${index}`;
+                div.textContent = segment.text;
+                routineSegments.appendChild(div);
+            });
+        }
+
+        // Update segment highlighting
+        function updateSegmentHighlight(index) {
+            document.querySelectorAll('.segment-item').forEach((el, i) => {
+                el.classList.remove('active', 'completed');
+                if (i < index) {
+                    el.classList.add('completed');
+                } else if (i === index) {
+                    el.classList.add('active');
+                    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+        }
+
+        // Calculate segment durations based on weights
+        function calculateSegmentDurations() {
+            const totalWeight = segments.reduce((sum, s) => sum + s.weight, 0);
+            return segments.map(s => (s.weight / totalWeight) * totalSeconds);
+        }
+
+        // Estimate speech duration (rough approximation: ~150 words per minute)
+        function estimateSpeechDuration(text) {
+            const words = text.split(/\s+/).length;
+            return (words / 150) * 60; // seconds
+        }
+
+        // Timer update
+        function updateTimer() {
+            if (!isPlaying || isPaused) return;
+            
+            const elapsed = (Date.now() - startTime) / 1000;
+            const progress = Math.min(elapsed / totalSeconds, 1);
+            
+            elapsedTimeEl.textContent = formatTime(elapsed);
+            progressBar.style.width = `${progress * 100}%`;
+            
+            if (elapsed >= totalSeconds) {
+                stopPlayback();
+            }
+        }
+
+        // TTS Playback
+        function speakSegment(index, targetDuration) {
+            if (!ttsSupported || index >= segments.length || !isPlaying) {
+                if (index >= segments.length) {
+                    stopPlayback();
+                }
                 return;
             }
-            const toneClass = tone === "error" ? "text-danger" : "text-secondary";
-            statusMessage.className = `mt-3 small ${toneClass}`;
-            statusMessage.textContent = message;
+
+            if (isPaused) {
+                return;
+            }
+
+            currentSegmentIndex = index;
+            updateSegmentHighlight(index);
+
+            const segment = segments[index];
+            const speechDuration = estimateSpeechDuration(segment.text);
+            const pauseDuration = Math.max(0, (targetDuration - speechDuration) * 1000);
+
+            currentUtterance = new SpeechSynthesisUtterance(segment.text);
+            currentUtterance.rate = 0.9;
+            currentUtterance.pitch = 1;
+            currentUtterance.volume = 1;
+
+            // Get available voices and prefer a natural sounding one
+            const voices = synth.getVoices();
+            const preferredVoice = voices.find(v => 
+                v.lang.startsWith('en') && (v.name.includes('Samantha') || v.name.includes('Google'))
+            ) || voices.find(v => v.lang.startsWith('en'));
+            
+            if (preferredVoice) {
+                currentUtterance.voice = preferredVoice;
+            }
+
+            currentUtterance.onend = function() {
+                if (!isPlaying || isPaused) return;
+                
+                // Calculate remaining durations for subsequent segments
+                const durations = calculateSegmentDurations();
+                const nextDuration = index + 1 < segments.length ? durations[index + 1] : 0;
+                
+                // Wait for the pause duration, then speak next segment
+                pauseTimeout = setTimeout(() => {
+                    speakSegment(index + 1, nextDuration);
+                }, pauseDuration);
+            };
+
+            currentUtterance.onerror = function(event) {
+                console.error('Speech error:', event);
+                if (event.error !== 'canceled') {
+                    // Try to continue with next segment
+                    const durations = calculateSegmentDurations();
+                    const nextDuration = index + 1 < segments.length ? durations[index + 1] : 0;
+                    speakSegment(index + 1, nextDuration);
+                }
+            };
+
+            synth.speak(currentUtterance);
         }
 
-        function renderPoseCard(pose) {
-            const card = document.createElement("article");
-            card.className = "card card-glass p-4 h-100";
+        // Non-TTS playback (visual only)
+        function playWithoutTTS(index, targetDuration) {
+            if (index >= segments.length || !isPlaying) {
+                if (index >= segments.length) {
+                    stopPlayback();
+                }
+                return;
+            }
 
-            const poseTypes = pose.pose_type.length
-                ? pose.pose_type.map((item) => `<span class="badge badge-soft me-1 mb-1">${item}</span>`).join("")
-                : `<span class="text-secondary small">General practice</span>`;
+            if (isPaused) {
+                return;
+            }
 
-            const bodyParts = pose.target_body_parts.length
-                ? pose.target_body_parts.map((item) => `<span class="badge rounded-pill text-bg-dark border border-secondary-subtle me-1 mb-1">${item}</span>`).join("")
-                : `<span class="text-secondary small">Whole body</span>`;
+            currentSegmentIndex = index;
+            updateSegmentHighlight(index);
 
-            card.innerHTML = `
-                <h3 class="h4">${pose.english_name}</h3>
-                <p class="text-secondary small fst-italic mb-2">${pose.sanskrit_name || "—"}</p>
-                <div class="mb-3">
-                    <span class="text-uppercase small text-secondary">Pose style</span>
-                    <div class="mt-2 d-flex flex-wrap">${poseTypes}</div>
-                </div>
-                <div class="mb-3">
-                    <span class="text-uppercase small text-secondary">Targets</span>
-                    <div class="mt-2 d-flex flex-wrap">${bodyParts}</div>
-                </div>
-                <div>
-                    <span class="text-uppercase small text-secondary">How to practice</span>
-                    <p class="mt-2 text-light">${pose.instructions}</p>
-                </div>
-            `;
+            const durations = calculateSegmentDurations();
+            const nextDuration = index + 1 < segments.length ? durations[index + 1] : 0;
 
-            return card;
+            pauseTimeout = setTimeout(() => {
+                playWithoutTTS(index + 1, nextDuration);
+            }, targetDuration * 1000);
         }
 
-        async function fetchPoses(bodyPart) {
-            setStatus("Looking for poses...", "info");
-            resultsContainer.innerHTML = "";
+        // Start playback
+        function startPlayback() {
+            if (segments.length === 0) return;
+
+            isPlaying = true;
+            isPaused = false;
+            currentSegmentIndex = 0;
+            startTime = Date.now();
+            pausedTime = 0;
+
+            playBtn.disabled = true;
+            pauseBtn.disabled = false;
+            stopBtn.disabled = false;
+
+            timerInterval = setInterval(updateTimer, 100);
+
+            if (ttsSupported) {
+                synth = window.speechSynthesis;
+                // Ensure voices are loaded
+                if (synth.getVoices().length === 0) {
+                    synth.addEventListener('voiceschanged', () => {
+                        const durations = calculateSegmentDurations();
+                        speakSegment(0, durations[0]);
+                    }, { once: true });
+                } else {
+                    const durations = calculateSegmentDurations();
+                    speakSegment(0, durations[0]);
+                }
+            } else {
+                const durations = calculateSegmentDurations();
+                playWithoutTTS(0, durations[0]);
+            }
+        }
+
+        // Pause playback
+        function pausePlayback() {
+            if (!isPlaying || isPaused) return;
+
+            isPaused = true;
+            pausedTime = Date.now() - startTime;
+
+            if (ttsSupported && synth) {
+                synth.pause();
+            }
+
+            if (pauseTimeout) {
+                clearTimeout(pauseTimeout);
+                pauseTimeout = null;
+            }
+
+            playBtn.disabled = false;
+            playBtn.textContent = 'Resume';
+            pauseBtn.disabled = true;
+        }
+
+        // Resume playback
+        function resumePlayback() {
+            if (!isPlaying || !isPaused) return;
+
+            isPaused = false;
+            startTime = Date.now() - pausedTime;
+
+            if (ttsSupported && synth) {
+                synth.resume();
+            } else {
+                // Continue from current segment
+                const durations = calculateSegmentDurations();
+                playWithoutTTS(currentSegmentIndex, durations[currentSegmentIndex]);
+            }
+
+            playBtn.disabled = true;
+            playBtn.textContent = 'Play';
+            pauseBtn.disabled = false;
+        }
+
+        // Stop playback
+        function stopPlayback() {
+            isPlaying = false;
+            isPaused = false;
+            currentSegmentIndex = 0;
+
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+
+            if (pauseTimeout) {
+                clearTimeout(pauseTimeout);
+                pauseTimeout = null;
+            }
+
+            if (ttsSupported && synth) {
+                synth.cancel();
+            }
+
+            playBtn.disabled = false;
+            playBtn.textContent = 'Play';
+            pauseBtn.disabled = true;
+            stopBtn.disabled = true;
+
+            elapsedTimeEl.textContent = '0:00';
+            progressBar.style.width = '0%';
+
+            document.querySelectorAll('.segment-item').forEach(el => {
+                el.classList.remove('active', 'completed');
+            });
+        }
+
+        // Generate routine
+        async function generateRoutine() {
+            hideError();
+            setLoading(true);
+            stopPlayback();
+
+            const bodyParts = getSelectedBodyParts();
+            const duration = parseInt(document.getElementById('routine-duration').value, 10);
+            const difficulty = document.getElementById('routine-difficulty').value;
+
+            if (bodyParts.length === 0) {
+                showError('Please select at least one body part.');
+                setLoading(false);
+                return;
+            }
 
             try {
-                const response = await fetch(`/pose?body_part=${encodeURIComponent(bodyPart)}`);
+                const response = await fetch('/routine', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        body_parts: bodyParts,
+                        duration_minutes: duration,
+                        difficulty: difficulty
+                    })
+                });
+
                 const data = await response.json();
 
                 if (!response.ok) {
-                    const errorMessage = data.error || data.message || "Something went wrong.";
-                    setStatus(errorMessage, "error");
-                    return;
+                    throw new Error(data.error || 'Failed to generate routine');
                 }
 
-                const poses = data.poses || [];
-                if (!poses.length) {
-                    setStatus("No poses found. Try another focus area.", "info");
-                    return;
-                }
+                segments = data.segments;
+                totalSeconds = data.total_seconds;
 
-                const fragment = document.createDocumentFragment();
-                poses.forEach((pose) => fragment.appendChild(renderPoseCard(pose)));
-                resultsContainer.appendChild(fragment);
-                setStatus("");
+                totalTimeEl.textContent = formatTime(totalSeconds);
+                elapsedTimeEl.textContent = '0:00';
+                progressBar.style.width = '0%';
+
+                renderSegments();
+                routineOutputSection.classList.remove('hidden');
+
+                // Scroll to output section
+                routineOutputSection.scrollIntoView({ behavior: 'smooth' });
+
             } catch (error) {
-                console.error(error);
-                setStatus("Unable to reach the API right now. Please try again later.", "error");
+                console.error('Error generating routine:', error);
+                showError(error.message || 'An error occurred while generating the routine.');
+                routineOutputSection.classList.add('hidden');
+            } finally {
+                setLoading(false);
             }
         }
 
-        form.addEventListener("submit", (event) => {
-            event.preventDefault();
-            const selectValue = document.getElementById("body-part").value.trim();
-            const customValue = document.getElementById("custom-body-part").value.trim();
+        // Event listeners
+        generateBtn.addEventListener('click', generateRoutine);
 
-            const bodyPart = (customValue || selectValue).toLowerCase();
-            if (!bodyPart) {
-                setStatus("Please choose or enter a body part to get started.", "error");
-                return;
+        playBtn.addEventListener('click', function() {
+            if (isPaused) {
+                resumePlayback();
+            } else {
+                startPlayback();
             }
-
-            fetchPoses(bodyPart);
         });
 
-        // Auto-run initial search to showcase the UI.
-        fetchPoses("hips");
+        pauseBtn.addEventListener('click', pausePlayback);
+        stopBtn.addEventListener('click', stopPlayback);
+
+        // Clean up on page unload
+        window.addEventListener('beforeunload', function() {
+            if (ttsSupported && synth) {
+                synth.cancel();
+            }
+        });
+
+    })();
     </script>
 </body>
 </html>
